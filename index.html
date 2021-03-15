@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,39 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather API</title>
 </head>
+
 <body>
-    <h1>Weather Forecast</h1>
-    <!-- <script>
-        console.log("one")
-    </script> -->
-<script src="assets/js/script.js"></script>
+    <header class="header col-12">
+        <h1>Weather Forecast</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="form col-4">
+                    <form id="user-form" class="card-body">
+                        <label class="form-label" for="username">City</label>
+                        <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+                        <button type="submit" class="btn">Search</button>
+                    </form>
+                </div>
+                <div id="displayCities"></div>
+                <div class="info col-8" id="info">
+                    <p class="city" id="city"></p>
+                    <p id="currentDay"></p>
+                </div>
+                <div class="col-12" id="datesInfo"> 4 Days Forecast</div>
+                <div id="secondDay"></div>
+                <div id="thirdDay"></div>
+                <div id="fourthDay"></div>
+                <div id="fifthDay"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
