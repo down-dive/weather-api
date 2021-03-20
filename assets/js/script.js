@@ -77,7 +77,6 @@ function formSubmitHandler  () {
 
 
 let displayCurrentInfo = (info) => {
-    console.log("display current")
     console.log(info.city.name);
     // console.log(info)
 
