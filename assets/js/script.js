@@ -36,7 +36,6 @@ var fifthTime = moment().add(4, 'days')
 fifthDate.textContent = fifthTime.format("L")
 
 let getCurrentInfo = (city) => {
-console.log("39")
     cityN.textContent = city
 
     let apiURL = "https:api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&exclude=,daily&appid=b20a0c8394f0e460f879d6303c6f83ca";
@@ -62,11 +61,10 @@ console.log("39")
 };
 
 function formSubmitHandler  () {
-    console.log("foirm subnmit handler")
     // console.log(event);
     // get value from input element
     var cityName = nameInputEl.value.trim();
-    console.log("68" + cityName)
+    console.log(cityName)
 
     if (cityName) {
         getCurrentInfo(cityName);
