@@ -16,6 +16,7 @@ var fourthDate = document.querySelector("#fourthDay")
 var fifthDate = document.querySelector("#fifthDay")
 var nameInputEl = document.querySelector("#username")
 var cityFormEl = document.querySelector("#user-form")
+var SubBtn = document.querySelector("#subBtn")
 var cityN = document.querySelector("#city")
 var infoEl = document.querySelector("#info")
 var dates = document.querySelector("#datesInfo")
@@ -35,7 +36,7 @@ var fifthTime = moment().add(4, 'days')
 fifthDate.textContent = fifthTime.format("L")
 
 let getCurrentInfo = (city) => {
-
+console.log("39")
     cityN.textContent = city
 
     let apiURL = "https:api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&exclude=,daily&appid=b20a0c8394f0e460f879d6303c6f83ca";
@@ -60,11 +61,12 @@ let getCurrentInfo = (city) => {
 
 };
 
-var formSubmitHandler = function (event) {
-    event.preventDefault();
+function formSubmitHandler  () {
+    console.log("foirm subnmit handler")
     // console.log(event);
     // get value from input element
     var cityName = nameInputEl.value.trim();
+    console.log("68" + cityName)
 
     if (cityName) {
         getCurrentInfo(cityName);
@@ -77,6 +79,7 @@ var formSubmitHandler = function (event) {
 
 
 let displayCurrentInfo = (info) => {
+    console.log("display current")
     console.log(info.city.name);
     // console.log(info)
 
@@ -120,10 +123,10 @@ let displayCurrentInfo = (info) => {
 
     let fourthDateTemp = document.createElement("p")
     fourthDateTemp.textContent = info.list[23].main.temp + " F"
-    fourthdDay.appendChild(fourthDateTemp)
+    fourthDay.appendChild(fourthDateTemp)
 
     let fourthDateHumidity = document.createElement("p")
-    fourthdDateHumidity.textContent = info.list[23].main.humidity + " %"
+    fourthDateHumidity.textContent = info.list[23].main.humidity + " %"
     fourthDay.appendChild(fourthDateHumidity)
 
     let fifthDateTemp = document.createElement("p")
@@ -139,10 +142,12 @@ let displayCurrentInfo = (info) => {
 }
 
 var saveCities = function() {
+    console.log("146")
     localStorage.setItem("cities", JSON.stringify(cities));
   };
 
 var loadTasks = function () {
+    console.log("151")
     cities = JSON.parse(localStorage.setItem("cities"));
 
     // if nothing in localStorage, create a new object to track all task status arrays
@@ -157,7 +162,11 @@ var loadTasks = function () {
 
 
     // getCurrentInfo();
-    cityFormEl.addEventListener("submit", formSubmitHandler);
+    SubBtn.addEventListener("click", (event) => {
+        event.preventDefault()
+        formSubmitHandler()
+       console.log("clicked") 
+    });
 
 //    let getFutureInfo = (city) => {
 //     let apiURL = "https:api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=b20a0c8394f0e460f879d6303c6f83ca";
