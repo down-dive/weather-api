@@ -89,51 +89,51 @@ let displayCurrentInfo = (info) => {
 
 
     let tempObject = document.createElement("p")
-    tempObject.textContent = info.list[0].main.temp + " F"
+    tempObject.textContent = "Temp: " + info.list[0].main.temp + " F"
     infoEl.appendChild(tempObject)
     console.log(tempObject)
 
     let humudityObject = document.createElement("p")
-    humudityObject.textContent = info.list[0].main.humidity + " %"
+    humudityObject.textContent = "Humidity: " + info.list[0].main.humidity + " %"
     infoEl.appendChild(humudityObject)
     console.log(humudityObject)
 
     let windObject = document.createElement("p")
-    windObject.textContent = info.list[0].wind.speed + " MPH"
+    windObject.textContent = "Wind speed: " + info.list[0].wind.speed + " MPH"
     infoEl.appendChild(windObject)
     console.log(windObject)
 
 
     let secondDateTemp = document.createElement("p")
-    secondDateTemp.textContent = info.list[7].main.temp + " F"
+    secondDateTemp.textContent = "Temp: " + info.list[7].main.temp + " F"
     secondDay.appendChild(secondDateTemp)
 
     let secondDateHumidity = document.createElement("p")
-    secondDateHumidity.textContent = info.list[7].main.humidity + " %"
+    secondDateHumidity.textContent = "Humidity: " + info.list[7].main.humidity + " %"
     secondDay.appendChild(secondDateHumidity)
 
     let thirdDateTemp = document.createElement("p")
-    thirdDateTemp.textContent = info.list[15].main.temp + " F"
+    thirdDateTemp.textContent = "Temp: " + info.list[15].main.temp + " F"
     thirdDay.appendChild(thirdDateTemp)
 
     let thirdDateHumidity = document.createElement("p")
-    thirdDateHumidity.textContent = info.list[15].main.humidity + " %"
+    thirdDateHumidity.textContent = "Humidity: " + info.list[15].main.humidity + " %"
     thirdDay.appendChild(thirdDateHumidity)
 
     let fourthDateTemp = document.createElement("p")
-    fourthDateTemp.textContent = info.list[23].main.temp + " F"
+    fourthDateTemp.textContent = "Temp: " + info.list[23].main.temp + " F"
     fourthDay.appendChild(fourthDateTemp)
 
     let fourthDateHumidity = document.createElement("p")
-    fourthDateHumidity.textContent = info.list[23].main.humidity + " %"
+    fourthDateHumidity.textContent = "Humidity: " + info.list[23].main.humidity + " %"
     fourthDay.appendChild(fourthDateHumidity)
 
     let fifthDateTemp = document.createElement("p")
-    fifthDateTemp.textContent = info.list[31].main.temp + " F"
+    fifthDateTemp.textContent = "Temp: " + info.list[31].main.temp + " F"
     fifthDay.appendChild(fifthDateTemp)
 
     let fifthDateHumidity = document.createElement("p")
-    fifthDateHumidity.textContent = info.list[31].main.humidity + " %"
+    fifthDateHumidity.textContent = "Humidity: " + info.list[31].main.humidity + " %"
     fifthDay.appendChild(fifthDateHumidity)
 
 
