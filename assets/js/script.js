@@ -80,13 +80,6 @@ function formSubmitHandler() {
 
 let displayCurrentInfo = (info) => {
     console.log(info.city.name);
-    // console.log(info)
-
-    //     // loop over repos
-    // for (let i = 0; i < info.list.length; i += 8) {
-    // loop over user name
-
-
 
     let tempObject = document.createElement("p")
     tempObject.textContent = "Temp: " + info.list[0].main.temp + " F"
@@ -167,16 +160,7 @@ SubBtn.addEventListener("click", (event) => {
     console.log("clicked")
 });
 
-//    let getFutureInfo = (city) => {
-//     let apiURL = "https:api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=b20a0c8394f0e460f879d6303c6f83ca";
-//     fetch(apiURL).then((response) => {
-//         response.json().then((data) => {
-//             console.log(data);
-//         })
-//     });
 
-//    };
-//    getFutureInfo("Sunnyvale");
 
 
 
