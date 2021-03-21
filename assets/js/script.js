@@ -22,6 +22,7 @@ var infoEl = document.querySelector("#info")
 var dates = document.querySelector("#datesInfo")
 var cities = {}
 var displayCities = document.querySelector("#displayCities")
+var hideAll = document.querySelector(".hide")
 
 
 var currentTime = moment();
@@ -50,7 +51,7 @@ let getCurrentInfo = (city) => {
                     uvDataEl.textContent = uvData.value
                     infoEl.appendChild(uvDataEl)
 
-
+                    hideAll.classList.remove("hide")
                 })
             })
             // console.log(data);
@@ -60,7 +61,8 @@ let getCurrentInfo = (city) => {
 
 };
 
-function formSubmitHandler  () {
+
+function formSubmitHandler() {
     // console.log(event);
     // get value from input element
     var cityName = nameInputEl.value.trim();
@@ -138,10 +140,10 @@ let displayCurrentInfo = (info) => {
 
 }
 
-var saveCities = function() {
+var saveCities = function () {
     console.log("146")
     localStorage.setItem("cities", JSON.stringify(cities));
-  };
+};
 
 var loadTasks = function () {
     console.log("151")
@@ -158,12 +160,12 @@ var loadTasks = function () {
 
 
 
-    // getCurrentInfo();
-    SubBtn.addEventListener("click", (event) => {
-        event.preventDefault()
-        formSubmitHandler()
-       console.log("clicked") 
-    });
+// getCurrentInfo();
+SubBtn.addEventListener("click", (event) => {
+    event.preventDefault()
+    formSubmitHandler()
+    console.log("clicked")
+});
 
 //    let getFutureInfo = (city) => {
 //     let apiURL = "https:api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=b20a0c8394f0e460f879d6303c6f83ca";
