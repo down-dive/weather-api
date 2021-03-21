@@ -38,7 +38,7 @@ fifthDate.textContent = fifthTime.format("L")
 let getCurrentInfo = (city) => {
     cityN.textContent = city
 
-    let apiURL = "https:api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&exclude=,daily&appid=b20a0c8394f0e460f879d6303c6f83ca";
+    let apiURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&exclude=,daily&appid=b20a0c8394f0e460f879d6303c6f83ca";
     fetch(apiURL).then((response) => {
         response.json().then((data) => {
             fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "&appid=b20a0c8394f0e460f879d6303c6f83ca").then(uvRes => {
