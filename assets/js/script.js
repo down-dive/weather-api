@@ -155,6 +155,7 @@ var loadTasks = function (city) {
         };
     }
     displayCities.appendChild(cities)
+    console.log(cities)
 }
 
 
