@@ -14,6 +14,7 @@ var secondDate = document.querySelector("#secondDay")
 var thirdDate = document.querySelector("#thirdDay")
 var fourthDate = document.querySelector("#fourthDay")
 var fifthDate = document.querySelector("#fifthDay")
+var sixthDate = document.querySelector("#sixthDay")
 var nameInputEl = document.querySelector("#username")
 var cityFormEl = document.querySelector("#user-form")
 var SubBtn = document.querySelector("#subBtn")
@@ -38,17 +39,19 @@ fifthDate.textContent = fifthTime.format("L")
 
 let getCurrentInfo = (city) => {
     cityN.textContent = city
+    loadTasks(city)
 
     let apiURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&exclude=,daily&appid=b20a0c8394f0e460f879d6303c6f83ca";
     fetch(apiURL).then((response) => {
         response.json().then((data) => {
+            console.log(data)
             fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "&appid=b20a0c8394f0e460f879d6303c6f83ca").then(uvRes => {
                 uvRes.json().then(uvData => {
 
                     console.log(uvData.value)
 
                     let uvDataEl = document.createElement("p")
-                    uvDataEl.textContent = uvData.value
+                    uvDataEl.textContent = "UV INDEX:" + uvData.value
                     infoEl.appendChild(uvDataEl)
 
                     hideAll.classList.remove("hide")
@@ -66,8 +69,6 @@ function formSubmitHandler() {
     // console.log(event);
     // get value from input element
     var cityName = nameInputEl.value.trim();
-    console.log(cityName)
-
     if (cityName) {
         getCurrentInfo(cityName);
         nameInputEl.value = "";
@@ -77,9 +78,7 @@ function formSubmitHandler() {
     }
 };
 
-
 let displayCurrentInfo = (info) => {
-    console.log(info.city.name);
 
     let tempObject = document.createElement("p")
     tempObject.textContent = "Temp: " + info.list[0].main.temp + " F"
@@ -129,7 +128,13 @@ let displayCurrentInfo = (info) => {
     fifthDateHumidity.textContent = "Humidity: " + info.list[31].main.humidity + " %"
     fifthDay.appendChild(fifthDateHumidity)
 
+    let sixthDateTemp = document.createElement("p")
+    sixthDateTemp.textContent = "Temp: " + info.list[39].main.temp + " F"
+    sixthDay.appendChild(sixthDateTemp)
 
+    let sixthDateHumidity = document.createElement("p")
+    sixthDateHumidity.textContent = "Humidity: " + info.list[39].main.humidity + " %"
+    sixthDay.appendChild(sixthDateHumidity)
 
 }
 
@@ -138,9 +143,10 @@ var saveCities = function () {
     localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-var loadTasks = function () {
-    console.log("151")
-    cities = JSON.parse(localStorage.setItem("cities"));
+var loadTasks = function (city) {
+    console.log(city)
+    
+    cities = JSON.parse(localStorage.setItem(city, city));
 
     // if nothing in localStorage, create a new object to track all task status arrays
     if (!tasks) {
@@ -153,15 +159,24 @@ var loadTasks = function () {
 
 
 
+
+
 // getCurrentInfo();
 SubBtn.addEventListener("click", (event) => {
     event.preventDefault()
     formSubmitHandler()
-    console.log("clicked")
 });
 
 
+function allStorage() {
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+    while ( i-- ) {
+        values.push( localStorage.getItem(keys[i]) );
+    }
+    return values;
+}
 
-
-
+console.log(allStorage())
 
